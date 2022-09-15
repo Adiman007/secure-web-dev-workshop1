@@ -21,25 +21,32 @@ function getFilmingLocationsNumber () {
 	}
 	return s1.size
 }
-console.log(`There is ${getFilmingLocationsNumber()} filming locations in Paris`)
+console.log(`There are ${getFilmingLocationsNumber()} filming locations in Paris`)
 
 // 📝 TODO: Filming locations sorted by start date, from most recent to oldest.
 // 1. Implement the function
 // 2. Log the first and last item in array
 function sortFilmingLocationsByStartDate () {
-	let SortedFilm = filmingLocations.sort((a.fields,b.fields)=>a-b)
-	console.log(SortedFilm)
+	let SortedFilm = filmingLocations.sort(function (a,b){return new Date(b.fields.date_debut) - new Date(a.fields.date_debut)})
 	return SortedFilm
 }
-console.log(`newest : ${sortFilmingLocationsByStartDate()[0]} , oldest : ${sortFilmingLocationsByStartDate()[-1]}`)
+const sortF = sortFilmingLocationsByStartDate()
+console.log(sortF[0],sortF[sortF.length-1])
 
 // 📝 TODO: Number of filming locations in 2020 only
 // 1. Make the function return the number of filming locations in 2020 only
 // 2. Log the result
 function getFilmingLocationsNumber2020 () {
-	return ''
+	let resul =0
+	for (let i=0;i<filmingLocations.length;i++) {
+		if (filmingLocations[i].fields.annee_tournage=="2020")
+		{
+			resul++
+		}
+	}
+	return resul
 }
-console.log()
+console.log(`There were ${getFilmingLocationsNumber2020()} filmed in 2020`)
 
 // 📝 TODO: Number of filming locations per year
 // 1. Implement the function, the expected result is an object with years as
@@ -50,9 +57,23 @@ console.log()
 //    }
 // 2. Log the result
 function getFilmingLocationsNumberPerYear () {
-	return {}
+	let resul = {}
+	const years=["2016","2017","2018","2019","2020","2021","2022"]
+	for (let a of years)
+	{
+		let number =0
+		for (let i=0;i<filmingLocations.length;i++) {
+			if (filmingLocations[i].fields.annee_tournage==a)
+			{
+				number++
+			}
+		}
+	resul[a]=number
+	}
+	return resul
+
 }
-console.log()
+console.log(getFilmingLocationsNumberPerYear())
 
 // 📝 TODO: Number of filming locations by district (arrondissement)
 // 1. Implement the function, the expected result is an object with
