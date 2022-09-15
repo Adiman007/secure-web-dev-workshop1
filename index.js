@@ -84,15 +84,33 @@ console.log(getFilmingLocationsNumberPerYear())
 //    }
 // 2. Log the result
 function getFilmingLocationsNumberPerDistrict () {
-	return {}
+	let locationPerDistrict = {}
+
+	for (let i=0; i<filmingLocations.length; i++){
+
+		if(locationPerDistrict[filmingLocations[i].fields.ardt_lieu] === undefined)
+		{
+			locationPerDistrict[filmingLocations[i].fields.ardt_lieu] = 0
+		}
+
+		locationPerDistrict[filmingLocations[i].fields.ardt_lieu] += 1
+	}
+	return locationPerDistrict
 }
-console.log()
+console.log(getFilmingLocationsNumberPerDistrict())
 
 // 📝 TODO: Number of locations per film, sorted in descending order
 // 1. Implement the function, result expected as an array of object like:
 //    const result = [{film: 'LRDM - Patriot season 2', locations: 12}, {...}]
 // 2. Log the first and last item of the array
 function getFilmLocationsByFilm () {
+	let locationPerFilm = []
+	for (let i=0; i<filmingLocations.length; i++) {
+		if (filmingLocations[i].fields.nom_tournage in locationPerFilm.titre)
+		locationPerFilm.add()
+	}
+	}
+
 	return []
 }
 console.log()
