@@ -15,7 +15,11 @@ console.log('🚀 It Works!');
 // 📝 TODO: Number of filming locations
 // 1. Make the function return the number of filming locations
 function getFilmingLocationsNumber () {
-	return ''
+	let s1 =new Set()
+	for (let i=0;i<filmingLocations.length;i++) {
+		s1.add(filmingLocations[i].fields.adresse_lieu)
+	}
+	return s1.size
 }
 console.log(`There is ${getFilmingLocationsNumber()} filming locations in Paris`)
 
@@ -23,9 +27,11 @@ console.log(`There is ${getFilmingLocationsNumber()} filming locations in Paris`
 // 1. Implement the function
 // 2. Log the first and last item in array
 function sortFilmingLocationsByStartDate () {
-	return ''
+	let SortedFilm = filmingLocations.sort((a.fields,b.fields)=>a-b)
+	console.log(SortedFilm)
+	return SortedFilm
 }
-console.log(``)
+console.log(`newest : ${sortFilmingLocationsByStartDate()[0]} , oldest : ${sortFilmingLocationsByStartDate()[-1]}`)
 
 // 📝 TODO: Number of filming locations in 2020 only
 // 1. Make the function return the number of filming locations in 2020 only
