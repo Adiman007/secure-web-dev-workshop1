@@ -219,9 +219,21 @@ console.log(getFilmingLocationsPerFilm(favoriteFilms))
 // 1. Implement the function
 // 2. Log the result
 function countFilmingTypes () {
-	return {}
+	let FilmType = {}
+
+	for (let i=0; i<filmingLocations.length; i++){
+
+		if(FilmType[filmingLocations[i].fields.type_tournage] === undefined)
+		{
+			FilmType[filmingLocations[i].fields.type_tournage] = 0
+		}
+
+		FilmType[filmingLocations[i].fields.type_tournage] += 1
+	}
+	return FilmType
 }
 
+console.log(countFilmingTypes())
 // 📝 TODO: Sort each type of filming by count, from highest to lowest
 // 1. Implement the function. It should return a sorted array of objects like:
 //    [{type: 'Long métrage', count: 1234}, {...}]
